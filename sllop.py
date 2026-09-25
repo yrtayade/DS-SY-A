@@ -68,6 +68,7 @@ s2.insertAtend(11)
 s2.insertAtend(33)
 s2.display()
 
+# logic for merging two list
 temp = s1.start
 while temp.next!=None:
     temp = temp.next
