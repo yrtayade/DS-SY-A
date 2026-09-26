@@ -4,6 +4,7 @@ class Node:
 
 class Operation:
     start = None
+    temp = None
     def insertAtBeg(self, data):
         newNode = Node()
         newNode.info = data
@@ -41,6 +42,34 @@ class Operation:
                 p = p.next
             p.next= newNode
 
+    def delete(self, data):
+        if self.start == None:
+            print("Empty List")
+        else:            
+            temp = self.start
+            while temp.info != data:
+                p = temp
+                temp = temp.next
+            
+                if temp == None:
+                    print("NO data found")    
+                    return
+            
+            if temp == self. start:
+                self.start = temp.next
+                temp.next = None
+                temp = None
+            elif temp.next == None:
+                p.next = None
+                temp = None
+            else:
+                q = temp.next
+                p.next = q
+                temp = None
+    
+
+
+
     def display(self):
         if self.start == None:
             print("Empty List")
@@ -56,22 +85,14 @@ s1.insertAtBeg(22)
 s1.insertAtBeg(62)
 s1.insertAtBeg(92)
 s1.insertAtBeg(88)
-s1.display()
 s1.insertAtMid(55, 62)
-s1.display()
 s1.insertAtend(30)
 s1.display()
-
-s2 = Operation()
-s2.insertAtBeg(99)
-s2.insertAtend(11)
-s2.insertAtend(33)
-s2.display()
-
-# logic for merging two list
-temp = s1.start
-while temp.next!=None:
-    temp = temp.next
-temp.next = s2.start
-
+s1.delete(55)
+s1.display()
+s1.delete(88)
+s1.display()
+s1.delete(30)
+s1.display()
+s1.delete(1)
 s1.display()
